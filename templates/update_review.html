@@ -1,0 +1,5 @@
+<form action="{{ url_for('update', review=revID) }}" method="POST">
+    {{ form.csrf_token }}
+    {{ form.review.label }} {{ form.review() }}
+    {{ form.update() }}
+</form>

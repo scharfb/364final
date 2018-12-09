@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h2>'{{keyword}}' Search Results:</h2>
+{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for b in businesses %}
+    <li>{{b}}</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

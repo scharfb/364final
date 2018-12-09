@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Welcome to Mini Yelp!</h1>
+{% endblock %}
+
+{% block nav %}
+{% if current_user.is_authenticated %}
+<ul>
+    <li><a href="{{ url_for('home') }}">Top Restaurants</a></li>
+    <li><a href="{{ url_for('my_reviews')}}">View My Reviews</a></li>
+    <li><a href="{{ url_for('all_reviews') }}">View All Reviews</a></li>
+    <li><a href="{{ url_for('keywords') }}">Search Businesses</a></li>
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.email.label }} {{ form.email() }}
+	{{ form.password.label }} {{ form.password() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+<p>New user?
+<a href="{{ url_for('register') }}">Click here to register</a> </p>
+
+{% endblock %}

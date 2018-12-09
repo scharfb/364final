@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Sign up for a new user account</h1>
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.email.label }} {{ form.email() }}
+	{{ form.username.label }} {{ form.username() }}
+    {{ form.password.label }} {{ form.password() }}
+    {{ form.password2.label }} {{ form.password2() }}
+    {{ form.location.label }} {{ form.location() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% block head %}
+
+<!doctype html>
+<html>
+    <head>
+        <style>
+            /*body {text-align:center;}*/
+            /*ul {display: inline-block; text-align: left;}*/
+            table {border: 1px solid black;}
+            td {border: 1px solid black;}
+            img {max-height: 200px;}
+        </style>
+        <title>SI364 Midterm</title>
+    </head>
+    <body>
+
+{% endblock %}
+
+{% block log %}
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.user}}</a>
+{% else %}
+    <a href="{{ url_for('index') }}">Sign In</a>
+{% endif %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block nav %}
+        <ul>
+            <li><a href="{{ url_for('home') }}">Top Restaurants</a></li>
+            <li><a href="{{ url_for('my_reviews')}}">View My Reviews</a></li>
+            <li><a href="{{ url_for('all_reviews') }}">View Reviews</a></li>
+            <li><a href="{{ url_for('keywords') }}">Search Businesses</a></li>
+        </ul>
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+
+    </body>
+</html>
+{% endblock %}

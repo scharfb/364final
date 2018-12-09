@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+    <strong>*** {{ message }} ***</strong>
+{% endfor %}
+
+<br><br><br><br>
+<h3>Here are all of the reviews done by {{current_user.user}}</h3>
+<ul>
+{% for item in all %}
+    <li>
+        {{ item }}
+        <form action="{{ url_for('update', review=item.id) }}" method="POST">
+            {{ formu.csrf_token }}
+            {{ formu.update() }}
+        </form>
+        <form action="{{ url_for('delete', review=item.id) }}" method="GET">
+            {{ formd.csrf_token }}
+            {{ formd.delete() }}
+        </form>
+    </li>
+{% endfor %}
+</ul
+
+
+{% endblock %}

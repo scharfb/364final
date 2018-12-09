@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for item in results %}
+<p>{{item.owner}} --- {{item.restaurant_name}} --- {{item.review}}</p>
+{% endfor %}
+
+{% endblock %}

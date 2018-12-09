@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h2>Here are the top three restaurants in your area!</h2>
+{% endblock %}
+
+{% block content %}
+<h3>Click the name to write a review</h3>
+<table>
+    <tr>
+        <td><strong>Image</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>Location</strong></td>
+    </tr>
+    {% for item in data %}
+    <tr>
+        <td><img src="{{item.image_url}}"></td>
+        <td><a href="{{url_for('review', id=item.id, name=item.name)}}">{{item.name}}</a></td>
+        <td>{{item.location.city}}, {{item.location.state}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

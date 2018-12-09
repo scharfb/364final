@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h2>Search for businesses!</h2>
+{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+    {{ form.keyword.label }} {{ form.keyword() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+{% endblock %}
